@@ -1,8 +1,14 @@
 <?php 
 include('Database.php');
-include('ObatBuilder.php');
+include('Obat.php');
 
-$obatBuilder = new ObatBuilder($_POST['namaObat'],$_POST['jenisObat'],$_POST['deskripsi']);
+// $obatBuilder = new ObatBuilder($_POST['namaObat'],$_POST['jenisObat'],$_POST['deskripsi']);
+
+$obatBuilder = (new ObatBuilder())
+    ->setNamaObat($_POST['namaObat'])
+    ->setJenisObat($_POST['jenisObat'])
+    ->setDeskripsi($_POST['deskripsi'])
+    ->build();
 
 
 

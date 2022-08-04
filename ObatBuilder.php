@@ -1,6 +1,6 @@
 <?php 
 
-class ObatBuilder {
+class ObatBuilder2 {
     private $namaObat;
     private $jenisObat;
     private $deskripsi;
