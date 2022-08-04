@@ -1,7 +1,18 @@
 <?php
+
+include_once 'SupplierEntity.php';
+include_once 'SupplierPool.php';
 include('Database.php');
+
 $db = new Database();
-$data_transaksi = $db->tampil_data_transaksi();
+$data_supplier = $db->tampil_data_supplier();
+
+$pool = new SupplierPool();
+$worker1 = $pool->getSupplier();
+
+?>
+
+<?php
 ?>
 <!doctype html>
 <html lang="en">
@@ -9,11 +20,12 @@ $data_transaksi = $db->tampil_data_transaksi();
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
+    <title>Supplier</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 </head>
 
 <body>
+
 
     <nav class="navbar navbar-expand-lg bg-light">
         <div class="container">
@@ -45,7 +57,8 @@ $data_transaksi = $db->tampil_data_transaksi();
     </nav>
 
     <div class="container">
-        <h1>Data Transaksi</h1>
+        <h1>Data Supplier</h1>
+        <p>Nama Supplier yg disarankan <?php echo $worker1->getnamaSupplier(); ?></p>
         <button type="button" class="btn btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#exampleModal">
             Tambah Data
         </button>
@@ -53,13 +66,8 @@ $data_transaksi = $db->tampil_data_transaksi();
             <thead>
                 <tr>
                     <th>No</th>
-                    <th>Nama Pembeli</th>
-                    <th>Nama Obat</th>
-                    <th>Jenis Obat</th>
-                    <th>Harga Obat</th>
-                    <th>Jumlah Pembelian</th>
-                    <th>Diskon</th>
-                    <th>Total Bayar</th>
+                    <th>Nama Supplier</th>
+                    <th>Alamat Supplier</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
@@ -67,22 +75,16 @@ $data_transaksi = $db->tampil_data_transaksi();
 
                 <?php
                 $no = 1;
-                foreach ($data_transaksi as $row) {
+                foreach ($data_supplier as $row) {
                 ?>
                     <tr>
                         <td><?= $no++; ?></td>
-                        <td><?= $row["nama_pembeli"] ?></td>
-                        <td><?= $row["nama_obat"] ?></td>
-                        <td><?= $row["jenis_obat"] ?></td>
-                        <td><?= $row["harga_obat"] ?></td>
-                        <td><?= $row["jumlah_beli"] ?></td>
-                        <td><?= $row["diskon"] ?></td>
-                        <td><?= $row["total_bayar"] ?></td>
-
+                        <td><?= $row["namaSupplier"] ?></td>
+                        <td><?= $row["AlamatSupplier"] ?></td>
                         <td>
-                            <a href="edit_transaksi.php?id=<?php echo $row['id_transaksi']; ?>" class="btn btn-primary">Update</a>
+                            <a href="edit_supplier.php?id=<?php echo $row['kodeSupplier']; ?>" class="btn btn-primary">Update</a>
 
-                            <a href="proses_transaksi.php?action=delete&id=<?php echo $row['id_transaksi']; ?>" class="btn btn-danger" onclick="confirm('Are You Sure ?')">Delete</a>
+                            <a href="proses_supplier.php?action=delete&id=<?php echo $row['kodeSupplier']; ?>" class="btn btn-danger" onclick="confirm('Are You Sure ?')">Delete</a>
                         </td>
                     </tr>
 
@@ -102,36 +104,16 @@ $data_transaksi = $db->tampil_data_transaksi();
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form method="POST" action="proses_transaksi.php?action=add">
+
+                        <form method="POST" action="proses_supplier.php?action=add">
                             <div class="mb-3">
-                                <label for="nama" class="form-label">Nama Pembeli</label>
-                                <input type="text" class="form-control" id="nama" name="nama_pembeli" required aria-describedby="emailHelp">
+                                <label for="namaSupplier" class="form-label">Nama Supplier</label>
+                                <input type="text" class="form-control" id="namaSupplier" name="namaSupplier" required aria-describedby="emailHelp">
 
                             </div>
                             <div class="mb-3">
-                                <label for="nama_obat" class="form-label">Nama Obat</label>
-                                <input type="text" class="form-control" id="nama_obat" name="nama_obat" required aria-describedby="emailHelp">
-
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="jenis_obat" class="form-label">Jenis Obat</label>
-                                <select name="jenis_obat" id="jenis_obat" class="form-select">
-                                    <option>Anak</option>
-                                    <option>Dewasa</option>
-                                </select>
-
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="harga_obat" class="form-label">Harga Obat</label>
-                                <input type="text" class="form-control" id="harga_obat" name="harga_obat" required aria-describedby="emailHelp">
-
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="jumlah_beli" class="form-label">Jumlah Beli</label>
-                                <input type="text" class="form-control" id="jumlah_beli" name="jumlah_beli" required aria-describedby="emailHelp">
+                                <label for="AlamatSupplier" class="form-label">Alamat Supplier</label>
+                                <input type="text" class="form-control" id="AlamatSupplier" name="AlamatSupplier" required aria-describedby="emailHelp">
 
                             </div>
 

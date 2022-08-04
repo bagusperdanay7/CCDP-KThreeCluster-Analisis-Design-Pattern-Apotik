@@ -1,4 +1,4 @@
-<?php 	
+<?php
 include('Database.php');
 $db = new Database();
 $data_pembeli = $db->tampil_data_pembeli();
@@ -10,8 +10,7 @@ $data_pembeli = $db->tampil_data_pembeli();
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap demo</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 </head>
 
 <body>
@@ -20,9 +19,7 @@ $data_pembeli = $db->tampil_data_pembeli();
     <nav class="navbar navbar-expand-lg bg-light">
         <div class="container">
             <a class="navbar-brand" href="#">Apotek Sejahtera</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -30,8 +27,7 @@ $data_pembeli = $db->tampil_data_pembeli();
 
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Data Apotek
                         </a>
                         <ul class="dropdown-menu">
@@ -67,23 +63,22 @@ $data_pembeli = $db->tampil_data_pembeli();
             <tbody>
 
                 <?php
-            $no = 1;
-            foreach($data_pembeli as $row) {
-            ?>
-                <tr>
-                    <td><?= $no++; ?></td>
-                    <td><?= $row["nama"]?></td>
-                    <td><?= $row["alamat"]?></td>
-                    <td><?= $row["jumlah_beli"]?></td>
-                    <td>
-                        <a href="edit_pembeli.php?id=<?php echo $row['id']; ?>" class="btn btn-primary">Update</a>
+                $no = 1;
+                foreach ($data_pembeli as $row) {
+                ?>
+                    <tr>
+                        <td><?= $no++; ?></td>
+                        <td><?= $row["nama"] ?></td>
+                        <td><?= $row["alamat"] ?></td>
+                        <td><?= $row["jumlah_beli"] ?></td>
+                        <td>
+                            <a href="edit_pembeli.php?id=<?php echo $row['id']; ?>" class="btn btn-primary">Update</a>
 
-                        <a href="proses_pembeli.php?action=delete&id=<?php echo $row['id']; ?>" class="btn btn-danger"
-                            onclick="confirm('Are You Sure ?')">Delete</a>
-                    </td>
-                </tr>
+                            <a href="proses_pembeli.php?action=delete&id=<?php echo $row['id']; ?>" class="btn btn-danger" onclick="confirm('Are You Sure ?')">Delete</a>
+                        </td>
+                    </tr>
 
-                <?php }?>
+                <?php } ?>
             </tbody>
         </table>
 
@@ -102,21 +97,18 @@ $data_pembeli = $db->tampil_data_pembeli();
                         <form method="POST" action="proses_pembeli.php?action=add">
                             <div class="mb-3">
                                 <label for="nama" class="form-label">Nama Pembeli</label>
-                                <input type="text" class="form-control" id="nama" name="nama" required
-                                    aria-describedby="emailHelp">
+                                <input type="text" class="form-control" id="nama" name="nama" required aria-describedby="emailHelp">
 
                             </div>
                             <div class="mb-3">
                                 <label for="alamat" class="form-label">Alamat</label>
-                                <input type="text" class="form-control" id="alamat" name="alamat" required
-                                    aria-describedby="emailHelp">
+                                <input type="text" class="form-control" id="alamat" name="alamat" required aria-describedby="emailHelp">
 
                             </div>
 
                             <div class="mb-3">
                                 <label for="jumlah_beli" class="form-label">Jumlah Beli</label>
-                                <input type="text" class="form-control" id="jumlah_beli" name="jumlah_beli" required
-                                    aria-describedby="emailHelp">
+                                <input type="text" class="form-control" id="jumlah_beli" name="jumlah_beli" required aria-describedby="emailHelp">
 
                             </div>
 
@@ -133,8 +125,7 @@ $data_pembeli = $db->tampil_data_pembeli();
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous">
     </script>
 </body>
 

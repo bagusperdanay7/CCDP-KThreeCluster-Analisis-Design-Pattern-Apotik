@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin-left: 20px;
+    font-family: 'Roboto', sans-serif;
+    background-color: #EFECCA;
+}
+
+header {
+    font-family: 'Roboto', sans-serif;
+    font-size: 24px;
+    color: #046380;
+}
+
+.subhead {
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    color: #046380;
+}
+
+.margin-all {
+    margin: 100px;
+}

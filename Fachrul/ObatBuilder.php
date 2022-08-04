@@ -1,6 +1,6 @@
 <?php 
 
-class ObatBuilder2 {
+class ObatBuilder {
     private $namaObat;
     private $jenisObat;
     private $deskripsi;
@@ -39,3 +39,5 @@ class ObatBuilder2 {
         return $this->deskripsi;
     }
 }
+
+?>

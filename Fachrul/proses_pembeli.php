@@ -4,6 +4,8 @@ include('Pembeli.php');
 
 $pembeli = new Pembeli($_POST['nama'],$_POST['alamat'],$_POST['jumlah_beli']);
 
+
+
 $koneksi = new Database();
 
 $action = $_GET['action'];
@@ -23,3 +25,4 @@ elseif($action=="delete")
 	$koneksi->delete_data_pembeli($id);
 	header('location:tampil_pembeli.php');
 }
+?>

@@ -1,14 +1,8 @@
 <?php 
 include('Database.php');
-include('Obat.php');
+include('ObatBuilder.php');
 
-// $obatBuilder = new ObatBuilder($_POST['namaObat'],$_POST['jenisObat'],$_POST['deskripsi']);
-
-$obatBuilder = (new ObatBuilder())
-    ->setNamaObat($_POST['namaObat'])
-    ->setJenisObat($_POST['jenisObat'])
-    ->setDeskripsi($_POST['deskripsi'])
-    ->build();
+$obatBuilder = new ObatBuilder($_POST['namaObat'],$_POST['jenisObat'],$_POST['deskripsi']);
 
 
 
@@ -31,3 +25,4 @@ elseif($action=="delete")
 	$koneksi->delete_data($kodeObat);
 	header('location:tampil_obat.php');
 }
+?>
