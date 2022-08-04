@@ -1,8 +1,8 @@
 <?php
 
-function __autoload($classname) {
-    include $classname.'.php';
-}
+// function __autoload($classname) {
+//     include $classname.'.php';
+// }
 
 $pool = new SupplierPool();
 
@@ -14,6 +14,3 @@ echo $worker2->getalamatSupplier();
 
 $pool->release($worker1);
 $pool->release($worker2);
-
-
-

@@ -16,6 +16,39 @@ $data_pembeli = $db->tampil_data_pembeli();
 
 <body>
 
+
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">Apotek Sejahtera</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-auto">
+
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Data Apotek
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="tampil_obat.php">Obat</a></li>
+                            <li><a class="dropdown-item" href="tampil_transaksi.php">Transaksi</a></li>
+                            <li><a class="dropdown-item" href="tampil_pembeli.php">Pembeli</a></li>
+
+
+                        </ul>
+                    </li>
+
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+
     <div class="container">
         <h1>Data Pembeli</h1>
         <button type="button" class="btn btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#exampleModal">
