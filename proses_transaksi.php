@@ -48,7 +48,7 @@ elseif($action=="update")
 }
 elseif($action=="delete")
 {
-	$id = $_GET['id'];
+	$id = $_GET['id_transaksi'];
 	$koneksi->delete_data_transaksi($id);
 	header('location:tampil_transaksi.php');
 }
