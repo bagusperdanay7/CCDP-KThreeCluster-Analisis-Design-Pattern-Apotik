@@ -5,6 +5,7 @@ Repository ini dibuat untuk memenuhi tugas besar Analisis Design Pattern Apotik 
 ## Team
 
 - Bagus Perdana Yusuf
+- Fakhri Yusrizal Hidayat
 - Raden Fachrul Ramzy Muhammad
 - Robi Nurhidayat
 
